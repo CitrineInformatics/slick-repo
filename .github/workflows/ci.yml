@@ -1,0 +1,19 @@
+  name: CI
+  env:
+    COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  on:
+    push:
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
+      - uses: coursier/cache-action@v6
+      - uses: coursier/setup-action@v1
+        with:
+          jvm: graalvm:21.0.0.2
+          apps: sbt bloop
+      - name: Test and Coverage
+        run: sbt --client "clean; coverage; test; coverageReport; coveralls"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
