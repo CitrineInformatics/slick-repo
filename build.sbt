@@ -65,16 +65,16 @@ lazy val project: Project =
           Seq("org.scala-lang" % "scala-reflect" % version)
       ).value,
       resolvers ++= dependencyResolvers,
-      parallelExecution in Test := false,
+      Test / parallelExecution := false,
       coverageEnabled := true,
-      testOptions in Test := Seq(Tests.Filter(baseFilter)),
-      testOptions in Db2Test := Seq(Tests.Filter(db2Filter)),
-      testOptions in AllDbsTest := Seq(Tests.Filter(allDbsFilter)),
-      testOptions in SqlServerTest := Seq(Tests.Filter(sqlServerFilter)),
+      Test / testOptions := Seq(Tests.Filter(baseFilter)),
+      Db2Test / testOptions := Seq(Tests.Filter(db2Filter)),
+      AllDbsTest / testOptions  := Seq(Tests.Filter(allDbsFilter)),
+      SqlServerTest / testOptions := Seq(Tests.Filter(sqlServerFilter)),
       publishMavenStyle := true,
       organization := "com.byteslounge",
       pomIncludeRepository := { _ => false },
-      publishArtifact in Test := false,
+      Test / publishArtifact := false,
       publishTo := {
         val nexus = "https://oss.sonatype.org/"
         if (isSnapshot.value)
