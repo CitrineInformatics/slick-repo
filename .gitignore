@@ -6,3 +6,4 @@ src/docker/oracle-build/docker-images/
 /.bsp
 /.metals
 /.vscode
+metals.sbt
