@@ -8,12 +8,16 @@
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
+      - name: Docker Compose Action
+        uses: isbang/compose-action@v1.5.0
+        with:
+          compose-file: "./src/docker/mysql/docker-compose.yml"
       - uses: coursier/cache-action@v6
       - uses: coursier/setup-action@v1
         with:
           jvm: graalvm:21.0.0.2
           apps: sbt bloop
       - name: Test and Coverage
-        run: sbt --client "clean; coverage; test; coverageReport; coveralls"
+        run: sbt --client "clean; coverage; test; alldbs:test; coverageReport; coveralls"
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3

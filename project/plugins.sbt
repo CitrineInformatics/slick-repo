@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-addSbtPlugin("se.marcuslonnberg" % "sbt-docker" % "1.4.1")
+addSbtPlugin("se.marcuslonnberg" % "sbt-docker" % "1.10.0")
 
 addSbtPlugin("com.tapad" % "sbt-docker-compose" % "1.0.35")
 

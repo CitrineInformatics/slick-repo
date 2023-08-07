@@ -22,4 +22,4 @@
  * SOFTWARE.
  */
 
-addSbtPlugin("se.marcuslonnberg" % "sbt-docker" % "1.4.0")
+addSbtPlugin("se.marcuslonnberg" % "sbt-docker" % "1.10.0")
