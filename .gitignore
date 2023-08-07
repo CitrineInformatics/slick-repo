@@ -7,3 +7,5 @@ src/docker/oracle-build/docker-images/
 /.metals
 /.vscode
 metals.sbt
+/derbyDB
+derby.log
