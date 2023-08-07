@@ -18,6 +18,6 @@
           jvm: graalvm:21.0.0.2
           apps: sbt bloop
       - name: Test and Coverage
-        run: sbt --client "clean; coverage; test; coverageReport; coveralls"
+        run: sbt --client "clean; coverage; test; alldbs:test; coverageReport; coveralls"
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
