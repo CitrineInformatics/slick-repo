@@ -50,7 +50,7 @@ lazy val project: Project =
     .settings(
       name := "slick-repo",
       description := "CRUD Repositories for Slick based persistence Scala projects",
-      version := "1.6.2-SNAPSHOT",
+      version := "1.6.2",
       scalaVersion := "2.12.16",
       crossScalaVersions := Seq("2.13.0", "2.12.16", "2.11.12", "2.10.7"),
       libraryDependencies ++= dependencies,
@@ -72,18 +72,17 @@ lazy val project: Project =
       AllDbsTest / testOptions  := Seq(Tests.Filter(allDbsFilter)),
       SqlServerTest / testOptions := Seq(Tests.Filter(sqlServerFilter)),
       publishMavenStyle := true,
-      organization := "com.byteslounge",
+      organization := "io.github.pacdaemon",
       pomIncludeRepository := { _ => false },
       Test / publishArtifact := false,
       publishTo := {
-        val nexus = "https://oss.sonatype.org/"
+        val nexus = "https://s01.oss.sonatype.org/"
         if (isSnapshot.value)
           Some("snapshots" at nexus + "content/repositories/snapshots")
         else
           Some("releases" at nexus + "service/local/staging/deploy/maven2")
       },
-      credentials += Credentials(Path.userHome / ".ivy2" / ".credentials"),
-      useGpg := true,
+      credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credentials"),
       pomExtra :=
         <url>https://github.com/gonmarques/slick-repo</url>
           <inceptionYear>2016</inceptionYear>
@@ -123,8 +122,8 @@ lazy val project: Project =
             </contributor>
           </contributors>
           <scm>
-            <url>https://github.com/gonmarques/slick-repo.git</url>
-            <connection>scm:git:git://github.com/gonmarques/slick-repo.git</connection>
+            <url>https://github.com/pacdaemon/slick-repo.git</url>
+            <connection>scm:git:git://github.com/pacdaemon/slick-repo.git</connection>
           </scm>
     )
 
@@ -177,5 +176,5 @@ def getSlickDependency(slickComponent: String, version: String): ModuleID = {
   "com.typesafe.slick" %
     (slickComponent + "_" + version.substring(0, version.lastIndexOf('.'))) %
     (if (version.startsWith("2.10")) { "3.1.1" }
-     else { "3.3.2" })
+     else { "3.4.1" })
 }
