@@ -50,18 +50,15 @@ lazy val project: Project =
     .settings(
       name := "slick-repo",
       description := "CRUD Repositories for Slick based persistence Scala projects",
-      version := "1.6.2",
+      version := "1.6.4-SNAPSHOT",
       scalaVersion := "2.12.16",
-      crossScalaVersions := Seq("2.13.0", "2.12.16", "2.11.12", "2.10.7"),
+      crossScalaVersions := Seq("2.13.0", "2.12.16"),
       libraryDependencies ++= dependencies,
       libraryDependencies ++= scalaVersion(version =>
         Seq(
           getSlickDependency("slick", version),
           getSlickDependency("slick-hikaricp", version) % "test"
-        ) ++
-          (if (version.startsWith("2.10"))
-             Seq("com.typesafe.slick" %% "slick-extensions" % "3.1.0" % "test")
-           else Seq.empty) ++
+        )  ++
           Seq("org.scala-lang" % "scala-reflect" % version)
       ).value,
       resolvers ++= dependencyResolvers,
