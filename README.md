@@ -1,11 +1,13 @@
 |Database|CI |Build status|
 |--------|---|------------|
-|MySQL, Oracle, DB2, PostgreSQL, Derby, H2, Hsql|Travis CI|[![Build status](https://travis-ci.org/gonmarques/slick-repo.svg?branch=master)](https://travis-ci.org/gonmarques/slick-repo)|
+|MySQL, Oracle, DB2, PostgreSQL, Derby, H2, Hsql|Github Actions|[![Main workflow](https://github.com/pacdaemon/slick-repo/actions/workflows/ci.yml/badge.svg)](https://github.com/pacdaemon/slick-repo/actions/workflows/ci.yml)|
 |SQLServer|AppVeyor|[![Build status](https://ci.appveyor.com/api/projects/status/3httes30fa1foes1/branch/master?svg=true)](https://ci.appveyor.com/project/gonmarques/slick-repo)|
 
-[![Coverage Status](https://coveralls.io/repos/github/gonmarques/slick-repo/badge.svg?branch=master)](https://coveralls.io/github/gonmarques/slick-repo)&nbsp;&nbsp;&nbsp;[![Latest Release](https://img.shields.io/badge/release-v1.6.1-007ec6.svg)](https://search.maven.org/#search%7Cga%7C1%7Cbyteslounge%20slick-repo)&nbsp;&nbsp;&nbsp;[![MIT License](https://img.shields.io/badge/license-MIT-7c39ef.svg)](http://opensource.org/licenses/MIT)
+[![Coverage Status](https://coveralls.io/repos/github/pacdaemon/slick-repo/badge.svg?branch=master)](https://coveralls.io/github/pacdaemon/slick-repo)&nbsp;&nbsp;&nbsp;[![Maven Central](https://img.shields.io/maven-central/v/io.github.pacdaemon/slick-repo_2.13)](https://search.maven.org/search?q=io.github.pacdaemon%20slick-repo)&nbsp;&nbsp;&nbsp;[![MIT License](https://img.shields.io/badge/license-MIT-7c39ef.svg)](http://opensource.org/licenses/MIT)
 
 # slick-repo
+
+>This is a fork of https://github.com/gonmarques/slick-repo which I'm maintaining for the sole goal of keeping dependencies updated.
 
 Slick Repositories is an aggregation of common database operations in ready-to-be-used generic and type-safe repositories, best known as DAOs.
 
