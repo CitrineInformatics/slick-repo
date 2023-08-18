@@ -81,7 +81,7 @@ lazy val project: Project =
       },
       credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credentials"),
       pomExtra :=
-        <url>https://github.com/gonmarques/slick-repo</url>
+        <url>https://github.com/pacdaemon/slick-repo</url>
           <inceptionYear>2016</inceptionYear>
           <licenses>
             <license>
