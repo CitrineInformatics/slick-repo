@@ -41,6 +41,9 @@ val dependencies = Seq(
   "joda-time" % "joda-time" % "2.9.6" % "test"
 )
 
+lazy val nexusRepository =
+  "browse/citrine/io/citrine/mithril/" at "https://nexus.corp.citrine.io/repository/citrine/"
+
 lazy val project: Project =
   Project("root", file("."))
     .configs(AllDbsTest, Db2Test, SqlServerTest)
@@ -58,7 +61,7 @@ lazy val project: Project =
         Seq(
           getSlickDependency("slick", version),
           getSlickDependency("slick-hikaricp", version) % "test"
-        )  ++
+        ) ++
           Seq("org.scala-lang" % "scala-reflect" % version)
       ).value,
       resolvers ++= dependencyResolvers,
@@ -66,20 +69,22 @@ lazy val project: Project =
       coverageEnabled := true,
       Test / testOptions := Seq(Tests.Filter(baseFilter)),
       Db2Test / testOptions := Seq(Tests.Filter(db2Filter)),
-      AllDbsTest / testOptions  := Seq(Tests.Filter(allDbsFilter)),
+      AllDbsTest / testOptions := Seq(Tests.Filter(allDbsFilter)),
       SqlServerTest / testOptions := Seq(Tests.Filter(sqlServerFilter)),
       publishMavenStyle := true,
-      organization := "io.github.pacdaemon",
+      organization := "io.citrine",
       pomIncludeRepository := { _ => false },
       Test / publishArtifact := false,
       publishTo := {
-        val nexus = "https://s01.oss.sonatype.org/"
-        if (isSnapshot.value)
-          Some("snapshots" at nexus + "content/repositories/snapshots")
-        else
-          Some("releases" at nexus + "service/local/staging/deploy/maven2")
+        if (isSnapshot.value) {
+          None
+        } else {
+          Some(nexusRepository)
+        }
       },
-      credentials += Credentials(Path.userHome / ".sbt" / "sonatype_credentials"),
+      credentials += Credentials(
+        Path.userHome / ".sbt" / "sonatype_credentials"
+      ),
       pomExtra :=
         <url>https://github.com/pacdaemon/slick-repo</url>
           <inceptionYear>2016</inceptionYear>
