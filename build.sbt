@@ -50,7 +50,7 @@ lazy val project: Project =
     .settings(
       name := "slick-repo",
       description := "CRUD Repositories for Slick based persistence Scala projects",
-      version := "1.6.4-SNAPSHOT",
+      version := "1.7.0-SNAPSHOT",
       scalaVersion := "2.12.16",
       crossScalaVersions := Seq("2.13.0", "2.12.16"),
       libraryDependencies ++= dependencies,
@@ -173,5 +173,5 @@ def getSlickDependency(slickComponent: String, version: String): ModuleID = {
   "com.typesafe.slick" %
     (slickComponent + "_" + version.substring(0, version.lastIndexOf('.'))) %
     (if (version.startsWith("2.10")) { "3.1.1" }
-     else { "3.4.1" })
+     else { "3.5.0" })
 }
