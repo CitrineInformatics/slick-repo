@@ -53,7 +53,7 @@ lazy val project: Project =
     .settings(
       name := "slick-repo",
       description := "CRUD Repositories for Slick based persistence Scala projects",
-      version := "1.7.0-SNAPSHOT",
+      version := "1.7.1-SNAPSHOT",
       scalaVersion := "2.12.16",
       crossScalaVersions := Seq("2.13.0", "2.12.16"),
       libraryDependencies ++= dependencies,
